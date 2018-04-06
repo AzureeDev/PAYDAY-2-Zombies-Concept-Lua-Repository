@@ -14,7 +14,9 @@ function ElementWeaponSwitch:_get_punched_weapon_by_factory(factory)
 		wpn_fps_spe_wunderwaffe_primary = "wpn_fps_spe_wunderwaffe_dg3_primary",
 		wpn_fps_spe_wunderwaffe_secondary = "wpn_fps_spe_wunderwaffe_dg3_secondary",
 		wpn_fps_ass_m14_primary = "wpn_fps_ass_m14_upg_primary",
-		wpn_fps_ass_m14_secondary = "wpn_fps_ass_m14_upg_secondary"
+		wpn_fps_ass_m14_secondary = "wpn_fps_ass_m14_upg_secondary",
+		wpn_fps_snp_m95_primary = "wpn_fps_snp_m95_upg_primary",
+		wpn_fps_snp_m95_secondary = "wpn_fps_snp_m95_upg_secondary"
 	}
 
 	local punch_tbl = {}
@@ -40,12 +42,7 @@ end
 
 function ElementWeaponSwitch:_get_random_weapon()
 	--[[local table_available_weapons_mystery_box = {
-		"wpn_fps_spe_wunderwaffe",
 		"wpn_fps_ass_fal",
-		"wpn_fps_shot_b682",
-		"wpn_fps_ass_m14",
-		"wpn_fps_smg_mp9",
-		"wpn_fps_snp_m95",
 		"wpn_fps_pis_deagle",
 		"wpn_fps_ass_aug",
 		"wpn_fps_smg_p90",
@@ -67,7 +64,8 @@ function ElementWeaponSwitch:_get_random_weapon()
 		"wpn_fps_spe_wunderwaffe",
 		"wpn_fps_ass_m14",
 		"wpn_fps_shot_b682",
-		"wpn_fps_smg_mp9"
+		"wpn_fps_smg_mp9",
+		"wpn_fps_snp_m95"
 	}
 
 	if managers.player._wunderwaffe_unlocked then

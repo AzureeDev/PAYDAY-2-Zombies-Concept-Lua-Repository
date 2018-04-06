@@ -52,7 +52,7 @@ Hooks:PostHook(WeaponTweakData, "_init_new_weapons", "zm_init_new_weapons", func
     self.wunderwaffe_primary.CAN_TOGGLE_FIREMODE = false
     self.wunderwaffe_primary.single = {fire_rate = 1}
     self.wunderwaffe_primary.fire_mode_data = {fire_rate = 1}
-    self.wunderwaffe_primary.stats_modifiers = {damage = 1000}
+    self.wunderwaffe_primary.stats_modifiers = {damage = 1500}
     self.wunderwaffe_primary.muzzleflash = "effects/payday2/particles/electric/electric_sparks_small"
     self.wunderwaffe_primary.shell_ejection = nil
     self.wunderwaffe_primary.sounds.fire = "wunderwaffe_fire"
@@ -174,4 +174,11 @@ function WeaponTweakData:_init_upgraded_zm_weapons()
     }
     self.new_m14_upg_secondary = deep_clone(self.new_m14_upg_primary)
     self.new_m14_upg_secondary.use_data = {selection_index = SECONDARY}
+
+    self.m95_upg_primary = deep_clone(self.m95_primary)
+    self.m95_upg_primary.CLIP_AMMO_MAX = 10
+    self.m95_upg_primary.NR_CLIPS_MAX = 4
+    self.m95_upg_primary.stats_modifiers = {damage = 100}
+    self.m95_upg_secondary = deep_clone(self.m95_upg_primary)
+    self.m95_upg_secondary.use_data = {selection_index = SECONDARY}
 end

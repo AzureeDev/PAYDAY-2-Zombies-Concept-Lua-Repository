@@ -42,4 +42,8 @@ Hooks:PostHook(PlayerTweakData, "_init_new_stances", "zm_init_new_stances", func
 	self.stances.b682_secondary = deep_clone(self.stances.b682)
 	self.stances.mp9_primary = deep_clone(self.stances.mp9)
 	self.stances.mp9_secondary = deep_clone(self.stances.mp9)
+	self.stances.m95_primary = deep_clone(self.stances.m95)
+	self.stances.m95_secondary = deep_clone(self.stances.m95)
+	self.stances.m95_upg_primary = deep_clone(self.stances.m95)
+	self.stances.m95_upg_secondary = deep_clone(self.stances.m95)
 end)

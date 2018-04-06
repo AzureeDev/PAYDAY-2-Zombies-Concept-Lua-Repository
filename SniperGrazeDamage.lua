@@ -49,7 +49,7 @@ function SniperGrazeDamage:on_wunderwaffe_fired(weapon_unit, result)
         local key = hit.unit:key()
         hit_enemies[key] = {
           position = hit.position,
-          damage = 100000
+          damage = 125000
         }
         ignored_enemies[key] = true
       end

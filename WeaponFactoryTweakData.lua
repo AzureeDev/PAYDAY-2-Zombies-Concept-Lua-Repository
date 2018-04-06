@@ -121,4 +121,18 @@ function WeaponFactoryTweakData:_init_upgraded_multiplix()
     }
     self.wpn_fps_ass_m14_upg_secondary = deep_clone(self.wpn_fps_ass_m14_upg_primary)
     self.wpn_fps_ass_m14_upg_secondary.unit = "new_weapon_units/upgrade/wpn_fps_ass_m14_upg_secondary"
+
+    self.wpn_fps_snp_m95_upg_primary = deep_clone(self.wpn_fps_snp_m95)
+    self.wpn_fps_snp_m95_upg_primary.unit = "new_weapon_units/upgrade/wpn_fps_snp_m95_upg_primary"
+    self.wpn_fps_snp_m95_upg_primary.default_blueprint = {
+        "wpn_fps_snp_m95_barrel_long",
+        "wpn_fps_snp_m95_bipod",
+        "wpn_fps_snp_m95_lower_reciever",
+        "wpn_fps_snp_m95_upper_reciever",
+        "wpn_fps_snp_m95_magazine",
+        "wpn_fps_upg_o_leupold",
+        "wpn_fps_upg_m4_g_standard_vanilla"
+    }
+    self.wpn_fps_snp_m95_upg_secondary = deep_clone(self.wpn_fps_snp_m95_upg_primary)
+    self.wpn_fps_snp_m95_upg_secondary.unit = "new_weapon_units/upgrade/wpn_fps_snp_m95_upg_secondary"
 end
