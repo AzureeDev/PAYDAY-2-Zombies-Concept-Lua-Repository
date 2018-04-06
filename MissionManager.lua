@@ -1,0 +1,5 @@
+ dofile(ModPath .. "/ElementWeaponSwitch.lua")
+ dofile(ModPath .. "/ElementPointChecker.lua")
+ dofile(ModPath .. "/ElementWave.lua")
+ dofile(ModPath .. "/ElementAnnouncerGift.lua")
+ dofile(ModPath .. "/ElementDynamicEnv.lua")
