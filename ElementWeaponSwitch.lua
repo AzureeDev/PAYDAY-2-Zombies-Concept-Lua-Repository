@@ -16,7 +16,11 @@ function ElementWeaponSwitch:_get_punched_weapon_by_factory(factory)
 		wpn_fps_ass_m14_primary = "wpn_fps_ass_m14_upg_primary",
 		wpn_fps_ass_m14_secondary = "wpn_fps_ass_m14_upg_secondary",
 		wpn_fps_snp_m95_primary = "wpn_fps_snp_m95_upg_primary",
-		wpn_fps_snp_m95_secondary = "wpn_fps_snp_m95_upg_secondary"
+		wpn_fps_snp_m95_secondary = "wpn_fps_snp_m95_upg_secondary",
+		wpn_fps_smg_mp9_primary = "wpn_fps_smg_mp9_upg_primary",
+		wpn_fps_smg_mp9_secondary = "wpn_fps_smg_mp9_upg_secondary",
+		wpn_fps_shot_b682_primary = "wpn_fps_shot_b682_upg_primary",
+		wpn_fps_shot_b682_secondary = "wpn_fps_shot_b682_upg_secondary"
 	}
 
 	local punch_tbl = {}
