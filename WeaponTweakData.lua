@@ -41,7 +41,7 @@ Hooks:PostHook(WeaponTweakData, "_init_new_weapons", "zm_init_new_weapons", func
     self.wunderwaffe_primary.single = {fire_rate = 1}
     self.wunderwaffe_primary.fire_mode_data = {fire_rate = 1}
     self.wunderwaffe_primary.stats_modifiers = {damage = 1500}
-    self.wunderwaffe_primary.muzzleflash = "effects/payday2/particles/electric/electric_sparks_small"
+    self.wunderwaffe_primary.muzzleflash = "effects/payday2/particles/emp/emp_explosion"
     self.wunderwaffe_primary.shell_ejection = nil
     self.wunderwaffe_primary.sounds.fire = "wunderwaffe_fire"
     self.wunderwaffe_primary.sounds.fire_single = "wunderwaffe_fire"
@@ -135,7 +135,52 @@ function WeaponTweakData:_init_zm_new_weapons()
     self.m95_primary.weapon_hold = "m95"
     self.m95_primary.stats_modifiers = {damage = 50}
     self.m95_secondary = deep_clone(self.m95_primary)
-    self.m95_secondary.use_data = {selection_index = SECONDARY}    
+    self.m95_secondary.use_data = {selection_index = SECONDARY}
+
+    self.roach_primary = deep_clone(self.b682)
+    self.roach_primary.animations.reload_name_id = "b682"
+    self.roach_primary.sounds.fire = "roach_fire"
+    self.roach_primary.sounds.fire_single = "roach_fire"
+    self.roach_primary.weapon_hold = "siltstone"
+    self.roach_primary.rays = 1
+    self.roach_primary.CLIP_AMMO_MAX = 1
+    self.roach_primary.NR_CLIPS_MAX = 7
+    self.roach_primary.damage_near = 100000
+    self.roach_primary.damage_far = 100000
+    self.roach_primary.ignore_damage_upgrades = true
+    self.roach_primary.armor_piercing_chance = 1
+    self.roach_primary.can_shoot_through_enemy = true
+    self.roach_primary.can_shoot_through_wall = true
+    self.roach_primary.can_shoot_through_shield = true
+    self.roach_primary.muzzleflash = "effects/payday2/particles/weapons/50cal_auto_fps"
+    self.roach_primary.stats.damage = 90
+    self.roach_primary.stats.spread = 26
+    self.roach_primary.stats.spread_moving = 25
+    self.roach_primary.stats.recoil = 5
+    self.roach_primary.stats.concealment = 1
+    self.roach_primary.stats_modifiers = {damage = 1000}
+    self.roach_primary.fire_mode_data = {fire_rate = 2}
+    self.roach_primary.kick = {
+    standing = {
+		6.0,
+		4.0,
+		4.0,
+		-4.0
+    }, 
+    crouching = {
+        6.0,
+		4.0,
+		4.0,
+		-4.0
+    },
+    steelsight = {
+        6.0,
+		4.0,
+		4.0,
+		-4.0
+    }}
+    self.roach_secondary = deep_clone(self.roach_primary)
+    self.roach_secondary.use_data = {selection_index = SECONDARY, align_place = "right_hand"}
 
     self:_init_upgraded_zm_weapons()
 end

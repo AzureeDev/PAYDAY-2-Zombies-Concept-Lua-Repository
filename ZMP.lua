@@ -1,6 +1,6 @@
 Hooks:PostHook(StatisticsManager, "init", "zm_init_points", function(self)
     self._zm_points = {
-        [1] = 500,
+        [1] = 950,
         [2] = 500,
         [3] = 500,
         [4] = 500

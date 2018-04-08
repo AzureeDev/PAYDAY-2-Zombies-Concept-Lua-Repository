@@ -1,6 +1,7 @@
 Hooks:PreHook(PlayerManager, "init", "zm_init_perk", function(self)
     self._has_perk_juggernog = false
     self._wunderwaffe_unlocked = false
+    self._roach_unlocked = false
 end)
 
 Hooks:PostHook(PlayerManager, "update", "zm_upd_perk", function(self, t, dt)
@@ -56,6 +57,19 @@ Hooks:PostHook(PlayerManager, "update", "zm_upd_perk", function(self, t, dt)
         end
     end
 
+    if not self._roach_unlocked then
+        local current_state = self:get_current_state()
+        if current_state then
+            local current_weapon = current_state:get_equipped_weapon()
+            if current_weapon.name_id == "roach_primary" or current_weapon.name_id == "roach_secondary" then
+                local lip = SoundDevice:create_source("lip")
+                lip:post_event("zm_announcer_roach")
+                LuaNetworking:SendToPeers( "ZMRoachUnlocked", "1" )
+                self._roach_unlocked = true
+            end
+        end
+    end
+
 end)
 
 Hooks:PostHook(PlayerManager, "check_skills", "zm_check_skills", function(self)
@@ -67,5 +81,11 @@ Hooks:Add("NetworkReceivedData", "NetworkReceivedData_Wunderwaffe_unlock", funct
         local lip = SoundDevice:create_source("lip")
         lip:post_event("zm_announcer_wunder")
         managers.player._wunderwaffe_unlocked = true
+    end
+
+    if id == "ZMRoachUnlocked" then
+        local lip = SoundDevice:create_source("lip")
+        lip:post_event("zm_announcer_roach")
+        managers.player._roach_unlocked = true
     end
 end)

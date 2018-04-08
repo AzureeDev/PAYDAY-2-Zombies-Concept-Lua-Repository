@@ -68,13 +68,20 @@ function ElementWeaponSwitch:_get_random_weapon()
 
 	local table_available_weapons_mystery_box = {
 		"wpn_fps_spe_wunderwaffe",
+		"wpn_fps_special_roach",
 		"wpn_fps_ass_m14",
 		"wpn_fps_shot_b682",
 		"wpn_fps_smg_mp9",
 		"wpn_fps_snp_m95"
 	}
-
+	
 	if managers.player._wunderwaffe_unlocked then
+		table.remove(table_available_weapons_mystery_box, 1)
+	end
+	
+	if managers.player._roach_unlocked and not managers.player._wunderwaffe_unlocked then
+		table.remove(table_available_weapons_mystery_box, 2)
+	elseif managers.player._roach_unlocked and managers.player._wunderwaffe_unlocked then
 		table.remove(table_available_weapons_mystery_box, 1)
 	end
 
@@ -98,9 +105,11 @@ function ElementWeaponSwitch:on_executed(instigator)
 		if self._values.is_mystery_box then
 			factory_id = self:_get_random_weapon()
 		end
+
+		local current_index_equipped = managers.player:player_unit():inventory():equipped_selection()
+		local index_wtf = current_index_equipped == 1 and true or false
 		
 		if not self._values.force_classic_id then
-			local current_index_equipped = managers.player:player_unit():inventory():equipped_selection()
 			local endfix = ""
 
 			if current_index_equipped == 1 then
@@ -132,7 +141,7 @@ function ElementWeaponSwitch:on_executed(instigator)
 		end
 
 		local primary = {
-			equipped = true,
+			equipped = index_wtf,
 			factory_id = factory_id,
 			blueprint = blueprint_fucking_ovk,
 			weapon_id = managers.weapon_factory:get_weapon_id_by_factory_id(factory_id),
@@ -192,8 +201,10 @@ function ElementWeaponSwitch:on_executed(instigator)
 		factory_id = self:_get_random_weapon()
 	end
 
+	local current_index_equipped = managers.player:player_unit():inventory():equipped_selection()
+	local index_wtf = current_index_equipped == 1 and true or false
+
 	if not self._values.force_classic_id then
-		local current_index_equipped = managers.player:player_unit():inventory():equipped_selection()
 		local endfix = ""
 
 		if current_index_equipped == 1 then
@@ -210,7 +221,7 @@ function ElementWeaponSwitch:on_executed(instigator)
 	end
 
 	local primary = {
-		equipped = true,
+		equipped = index_wtf,
 		factory_id = factory_id,
 		blueprint = managers.weapon_factory:get_default_blueprint_by_factory_id(factory_id),
 		weapon_id = managers.weapon_factory:get_weapon_id_by_factory_id(factory_id),

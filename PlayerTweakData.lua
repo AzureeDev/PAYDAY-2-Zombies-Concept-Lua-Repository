@@ -52,4 +52,6 @@ Hooks:PostHook(PlayerTweakData, "_init_new_stances", "zm_init_new_stances", func
 	self.stances.b682_upg_secondary = deep_clone(self.stances.b682)
 	self.stances.mp9_upg_primary = deep_clone(self.stances.mp9)
 	self.stances.mp9_upg_secondary = deep_clone(self.stances.mp9)
+	self.stances.roach_primary = deep_clone(self.stances.siltstone)
+	self.stances.roach_secondary = deep_clone(self.stances.siltstone)
 end)

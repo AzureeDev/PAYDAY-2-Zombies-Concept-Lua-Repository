@@ -13,6 +13,8 @@ function HuskPlayerMovement:sync_start_auto_fire_sound()
 				local equipped_weapon = self._unit:inventory():equipped_unit()
 				local start_auto_fire = equipped_weapon:base().start_autofire
 
+				local name = equipped_weapon:base():get_name_id()
+
 				if equipped_weapon then
 					if start_auto_fire then
 						equipped_weapon:base():start_autofire()
@@ -50,7 +52,9 @@ function HuskPlayerMovement:sync_stop_auto_fire_sound()
 	if self._auto_firing > 0 then
 		local equipped_weapon = self._unit:inventory():equipped_unit()
 		local stop_autofire = equipped_weapon:base().stop_autofire
-		
+
+		local name = equipped_weapon:base():get_name_id()
+
 		if equipped_weapon then
 			if stop_autofire then
 				equipped_weapon:base():stop_autofire()

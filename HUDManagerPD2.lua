@@ -38,43 +38,242 @@ function HUDZMWaves:_create_gift_hud(parent)
 
     local gift_panel = parent:panel({
         name = "gift_panel",
-        w = 300,
-        h = 40
+        w = parent:w(),
+        h = 64
     })
-    gift_panel:set_top(self._panel:bottom() + 40)
+    gift_panel:set_y(parent:bottom() - 200)
 
     self.gift_panel = gift_panel
-
-    local icon_firesale = gift_panel:bitmap({
-        name = "icon_firesale",
-        texture = "perks/gift_firesale",
-        w = 40,
-        h = 40,
-        visible = is_firesale
-    })
 
     local icon_instakill = gift_panel:bitmap({
         name = "icon_instakill",
         texture = "perks/gift_instakill",
-        w = 40,
-        h = 40,
+        w = 64,
+        h = 64,
         visible = is_instakill
     })
-    icon_instakill:set_left(icon_firesale:right() + 5)
+    icon_instakill:set_center_x(parent:center_x())
+
+    local icon_firesale = gift_panel:bitmap({
+        name = "icon_firesale",
+        texture = "perks/gift_firesale",
+        w = 64,
+        h = 64,
+        visible = is_firesale
+    })
+    icon_firesale:set_right(icon_instakill:left() + 5)
 
     local icon_double_points = gift_panel:bitmap({
         name = "icon_double_points",
         texture = "perks/gift_double_points",
-        w = 40,
-        h = 40,
+        w = 64,
+        h = 64,
         visible = is_double_points
     })
-    icon_double_points:set_left(icon_instakill:right() + 5)
+    icon_double_points:set_left(icon_instakill:right())
 end
 
 function HUDZMWaves:_set_gift_visible(gift, visible)
     local texture = self.gift_panel:child(gift)
     texture:set_visible(visible)
+
+    local function animate_icon_lifetime(o)
+        local from = 1
+        local to = 0
+        local t = 0
+
+        o:set_alpha(from)
+        wait(18)
+        
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+        o:set_alpha(to)
+        wait(0.25)
+        o:set_alpha(from)
+        wait(0.25)
+
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+        o:set_alpha(to)
+        wait(0.1)
+        o:set_alpha(from)
+        wait(0.1)
+
+        o:set_alpha(to)
+
+        
+    end
+
+    texture:animate(animate_icon_lifetime)
 end
 
 function HUDZMWaves:_animate_text_blinking()
@@ -103,10 +302,14 @@ function HUDZMWaves:_animate_text_blinking()
 
         self._current_wave = self._current_wave + 1
         self._zm_wave_text:set_text("WAVE " .. self._current_wave)
-        managers.trade:set_trade_countdown(true)
+
+       --[[local myPeerId = 
+
+        if managers.trade:is_peer_in_custody() then
+            managers.trade:criminal_respawn(pos, rot, criminal)
+        end--]]
         --managers.groupai:state():teammate_comment(nil, "g51", nil, false, nil, true) -- Repeats due to the multiple calls by all players alive
         wait(8.5)
-        managers.trade:set_trade_countdown(false)
         local from = Color(0, 0.6, 0, 0)
         local to = Color(1, 0.6, 0, 0)
         local t = 0
